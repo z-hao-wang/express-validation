@@ -13,22 +13,21 @@ describe('validate headers', function () {
         .set('userId', '3243243242')
         .expect(200)
         .end(function (err, res) {
-          var response = JSON.parse(res.text)
-          response.should.equal(200)
+          res.statusCode.should.equal(200)
           done()
         })
     })
   })
 
   describe('when the request contains an invalid header', function () {
-    it('should return a 200 ok response', function (done) {
+    it('should return an error', function (done) {
       request(app)
         .get('/user')
         .set('accessToken', '')
         .set('userId', '3243243242')
-        .expect(200)
+        .expect(400)
         .end(function (err, res) {
-          var response = JSON.parse(res.text)
+          const response = res.body
           response.errors.length.should.equal(1)
           response.errors[0].messages.length.should.equal(1)
           response.errors[0].types.length.should.equal(1)

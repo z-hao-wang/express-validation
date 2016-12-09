@@ -10,7 +10,7 @@ describe('for schema that remove keys', function () {
         .send({ stripMe: 'I should disappear' })
         .expect(200)
         .end(function (err, res) {
-          var response = JSON.parse(res.text)
+          const response = res.body
           response.should.not.have.property('stripMe')
           done()
         })
@@ -24,7 +24,7 @@ describe('for schema that remove keys', function () {
         .send({ renameMe: 'I should reappear' })
         .expect(200)
         .end(function (err, res) {
-          var response = JSON.parse(res.text)
+          const response = res.body
           response.should.not.have.property('renameMe')
           response.should.have.property('renamedTo')
           response.renamedTo.should.be.equal('I should reappear')
@@ -44,7 +44,7 @@ describe('for schema that remove keys', function () {
         })
         .expect(200)
         .end(function (err, res) {
-          var response = JSON.parse(res.text)
+          const response = res.body
           response.should.not.have.property('iAmEmpty')
           response.iAmNotEmpty.should.be.equal('Text')
           done()

@@ -12,7 +12,7 @@ describe('set default values', function () {
         .send({ firstname: 'Jane', lastname: 'Doe' })
         .expect(200)
         .end(function (err, res) {
-          var response = JSON.parse(res.text)
+          const response = res.body
           response.username.should.equal('jane-doe')
           done()
         })

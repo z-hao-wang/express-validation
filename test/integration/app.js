@@ -24,10 +24,14 @@ function respond200 (req, res) {
   res.json(200)
 }
 
+function status200 (req, res) {
+  res.sendStatus(200)
+}
+
 app.post('/login', validate(validation.login), respond200)
 app.get('/user', validate(validation.user.get), respond200)
 app.get('/search', validate(validation.search), respond200)
-app.put('/user/:id', validate(validation.user.put), respond200)
+app.put('/user/:id', validate(validation.user.put), status200)
 app.post('/register', validate(validation.register.post), respond200)
 app.post('/options', validate(validation.options), respond200)
 app.get('/account/:id', validate(validation.account), respondWith('params'))
@@ -42,6 +46,8 @@ app.get('/parsing/cookies', validate(validation.parsing.cookies), respondWith('c
 app.post('/logout', validate(validation.logout), respond200)
 app.post('/array', validate(validation.array), respond200)
 app.post('/context/:id', validate(validation.context), respond200)
+app.post('/body-array', validate(validation.bodyArray), status200)
+app.post('/body-array-complex', validate(validation.bodyArrayComplex), status200)
 
 app.post('/strip', validate(validation.strip), respondWith('body'))
 app.post('/rename', validate(validation.rename), respondWith('body'))

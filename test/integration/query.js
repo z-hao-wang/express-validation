@@ -11,7 +11,7 @@ describe('validate query', function () {
         .get('/search?q=true')
         .expect(200)
         .end(function (err, res) {
-          var response = JSON.parse(res.text)
+          const response = res.body
           response.should.equal(200)
           done()
         })
@@ -24,7 +24,7 @@ describe('validate query', function () {
         .get('/search?q=')
         .expect(400)
         .end(function (err, res) {
-          var response = JSON.parse(res.text)
+          const response = res.body
           response.errors.length.should.equal(1)
           done()
         })

@@ -2,6 +2,8 @@
 
 exports.account = require('./account')
 exports.array = require('./array')
+exports.bodyArray = require('./body-array')
+exports.bodyArrayComplex = require('./body-array-complex')
 exports.context = require('./context')
 exports.defaults = require('./defaults')
 exports.login = require('./login')

@@ -19,8 +19,7 @@ describe('validate a mixture of request types', function () {
         .set('userId', '3243243242')
         .expect(200)
         .end(function (err, res) {
-          var response = JSON.parse(res.text)
-          response.should.equal(200)
+          res.statusCode.should.equal(200)
           done()
         })
     })
@@ -40,7 +39,7 @@ describe('validate a mixture of request types', function () {
         .set('userId', '3243243242')
         .expect(200)
         .end(function (err, res) {
-          var response = JSON.parse(res.text)
+          const response = res.body
           response.errors.length.should.equal(1)
           response.errors[0].messages.length.should.equal(1)
           response.errors[0].types.length.should.equal(1)
@@ -64,7 +63,7 @@ describe('validate a mixture of request types', function () {
         .set('userId', '3243243242')
         .expect(400)
         .end(function (err, res) {
-          var response = JSON.parse(res.text)
+          const response = res.body
           response.errors.length.should.equal(1)
           response.errors[0].messages.length.should.equal(2)
           response.errors[0].field.should.equal('password')
@@ -87,7 +86,7 @@ describe('validate a mixture of request types', function () {
         .set('userid', '3243243242')
         .expect(400)
         .end(function (err, res) {
-          var response = JSON.parse(res.text)
+          const response = res.body
           response.errors.length.should.equal(1)
           response.errors[0].messages.length.should.equal(1)
           response.errors[0].field.should.equal('accesstoken')

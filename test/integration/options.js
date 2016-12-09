@@ -18,7 +18,7 @@ describe('schema options', function () {
         .send(login)
         .expect(400)
         .end(function (err, res) {
-          var response = JSON.parse(res.text)
+          const response = res.body
           response.errors.length.should.equal(1)
           response.status.should.equal(400)
           response.statusText.should.equal('Bad Request')
@@ -34,7 +34,7 @@ describe('schema options', function () {
         .send('')
         .expect(422)
         .end(function (err, res) {
-          var response = JSON.parse(res.text)
+          const response = res.body
           response.errors.length.should.equal(1)
           response.status.should.equal(422)
           response.statusText.should.equal('Unprocessable Entity')

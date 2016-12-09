@@ -17,7 +17,7 @@ describe('validate body and flatten errors', function () {
         .send(register)
         .expect(400)
         .end(function (err, res) {
-          var response = JSON.parse(res.text)
+          const response = res.body
 
           response.should.have.keys('status', 'statusText', 'errors')
           should.exist(response.errors)

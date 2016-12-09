@@ -12,7 +12,7 @@ describe('validate cookies', function () {
         .send()
         .expect(200)
         .end(function (err, res) {
-          var response = JSON.parse(res.text)
+          const response = res.body
           response.should.equal(200)
           done()
         })
@@ -27,7 +27,7 @@ describe('validate cookies', function () {
         .send()
         .expect(400)
         .end(function (err, res) {
-          var response = JSON.parse(res.text)
+          const response = res.body
           response.errors.length.should.equal(1)
           done()
         })
@@ -42,7 +42,7 @@ describe('validate cookies', function () {
         .send()
         .expect(400)
         .end(function (err, res) {
-          var response = JSON.parse(res.text)
+          const response = res.body
           response.errors.length.should.equal(1)
           response.errors[0].messages.length.should.equal(1)
           response.errors[0].types.length.should.equal(1)
@@ -58,7 +58,7 @@ describe('validate cookies', function () {
         .send()
         .expect(400)
         .end(function (err, res) {
-          var response = JSON.parse(res.text)
+          const response = res.body
           response.errors.length.should.equal(2)
           response.errors[0].messages.length.should.equal(1)
           response.errors[0].types.length.should.equal(1)
@@ -77,7 +77,7 @@ describe('validate cookies', function () {
         .send()
         .expect(400)
         .end(function (err, res) {
-          var response = JSON.parse(res.text)
+          const response = res.body
           response.errors.length.should.equal(1)
           response.errors[0].messages.length.should.equal(1)
           response.errors[0].types.length.should.equal(1)
