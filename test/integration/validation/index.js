@@ -1,5 +1,6 @@
 'use strict'
 
+exports.allowUnknown = require('./allow-unknown')
 exports.account = require('./account')
 exports.array = require('./array')
 exports.bodyArray = require('./body-array')

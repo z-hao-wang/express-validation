@@ -6,7 +6,7 @@ const app = require('./app')
 
 describe('when specified stripUnknown on a specific property', function () {
   it('should be stripped from request', function (done) {
-    var payload = {
+    const payload = {
       text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
       password: '12356',
     }
@@ -21,7 +21,7 @@ describe('when specified stripUnknown on a specific property', function () {
   })
 
   it('should not strip from other properties', function (done) {
-    var payload = {
+    const payload = {
       text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
       password: '12356',
     }

@@ -34,6 +34,7 @@ app.get('/parsing/headers', validate(validation.parsing.headers), respondWith('h
 app.get('/parsing/params/:id?', validate(validation.parsing.params), respondWith('params'))
 app.get('/parsing/query', validate(validation.parsing.query), respondWith('query'))
 
+app.post('/allow-unknown', validate(validation.allowUnknown), respondWith('body'))
 app.post('/array', validate(validation.array), status200)
 app.post('/body-array', validate(validation.bodyArray), status200)
 app.post('/body-array-complex', validate(validation.bodyArrayComplex), status200)
