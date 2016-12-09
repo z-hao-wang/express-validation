@@ -12,8 +12,7 @@ describe('validate cookies', function () {
         .send()
         .expect(200)
         .end(function (err, res) {
-          const response = res.body
-          response.should.equal(200)
+          res.statusCode.should.equal(200)
           done()
         })
     })

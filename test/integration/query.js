@@ -11,8 +11,7 @@ describe('validate query', function () {
         .get('/search?q=true')
         .expect(200)
         .end(function (err, res) {
-          const response = res.body
-          response.should.equal(200)
+          res.statusCode.should.equal(200)
           done()
         })
     })
