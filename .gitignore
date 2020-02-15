@@ -6,6 +6,9 @@ lib-cov
 *.out
 *.pid
 *.gz
+.idea
+.vscode
+DS_Store
 
 pids
 logs

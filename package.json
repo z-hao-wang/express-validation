@@ -19,7 +19,8 @@
     "lodash": "^4.17.15"
   },
   "peerDependencies": {
-    "joi": "*"
+    "joi": "*",
+    "@hapi/joi": "*",
   },
   "devDependencies": {
     "body-parser": "1.19.0",
