@@ -63,8 +63,8 @@ describe('validate body', function () {
         .end(function (err, res) {
           var response = JSON.parse(res.text);
           response.errors.length.should.equal(1);
-          response.errors[0].messages.length.should.equal(2);
-          response.errors[0].types.length.should.equal(2);
+          response.errors[0].messages.length.should.equal(1);
+          response.errors[0].types.length.should.equal(1);
           done();
         });
     });
@@ -72,7 +72,7 @@ describe('validate body', function () {
 
   describe('when the request has multiple missing items in payload', function () {
 
-    it('should return a 400 response and two errors', function (done) {
+    it('should return a 400 response and one error', function (done) {
 
       var login = {
         email: '',
@@ -85,11 +85,9 @@ describe('validate body', function () {
         .expect(400)
         .end(function (err, res) {
           var response = JSON.parse(res.text);
-          response.errors.length.should.equal(2);
-          response.errors[0].messages.length.should.equal(2);
-          response.errors[0].types.length.should.equal(2);
-          response.errors[1].messages.length.should.equal(2);
-          response.errors[1].types.length.should.equal(2);
+          response.errors.length.should.equal(1);
+          response.errors[0].messages.length.should.equal(1);
+          response.errors[0].types.length.should.equal(1);
           done();
         });
     });

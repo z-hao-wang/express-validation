@@ -20,9 +20,10 @@
   },
   "peerDependencies": {
     "joi": "*",
-    "@hapi/joi": "*",
+    "@hapi/joi": "*"
   },
   "devDependencies": {
+    "@hapi/joi": "^17.1.0",
     "body-parser": "1.19.0",
     "cookie-parser": "1.4.4",
     "eslint": "6.4.0",

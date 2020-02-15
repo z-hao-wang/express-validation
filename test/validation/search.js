@@ -1,9 +1,9 @@
 'use strict';
 
-var Joi = require('joi');
+var Joi = require('@hapi/joi');
 
 module.exports = {
-  query: {
+  query: Joi.object().keys({
     q: Joi.string().required()
-  }
+  })
 };

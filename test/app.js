@@ -31,8 +31,6 @@ app.put('/user/:id', validate(validation.user.put), respond200);
 app.post('/register', validate(validation.register.post), respond200);
 app.post('/options', validate(validation.options), respond200);
 app.get('/account/:id', validate(validation.account), respondWith('params'));
-app.post('/defaults', validate(validation.defaults), respondWith('body'));
-
 app.get('/parsing/params/:id?', validate(validation.parsing.params), respondWith('params'));
 app.get('/parsing/query', validate(validation.parsing.query), respondWith('query'));
 app.post('/parsing/body', validate(validation.parsing.body), respondWith('body'));
